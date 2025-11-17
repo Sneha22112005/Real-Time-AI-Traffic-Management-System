@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Vehicle Detection</title>
+</head>
+<body>
+    <h2>Upload Image / Video for Vehicle Detection</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload & Detect</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    {% if output_image %}
+        <h3>Detection Result</h3>
+        <p><b>Total Vehicles Detected: {{ count }}</b></p>
+        <img src="/static/{{ output_image }}" width="600">
+    {% endif %}
+</body>
+</html>
